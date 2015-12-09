@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Discover MCTC</string>
+    <string name="action_settings">Settings</string>
+    <string name="campus_image_description">Image of MCTC campus showing outdoor plaza and nearby Helland Center.</string>
+    <string name="signup">Sign Up</string>
+    <string name="login">Log In</string>
+    <string name="welcome_text">Quinoa nihil midges hoodie, cold-pressed consectetur four look single-origin coffee labors et you probably haven\'t heard of them. Selvage dolor fashion letterpress kitsch official norm core retro.</string>
+
+    <!-- Strings related to login -->
+    <string name="title_activity_login">Log in</string>
+    <string name="title_activity_signup">Sign up</string>
+    <string name="prompt_username">Email address</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_password_again">Password Again</string>
+    <string name="error_intro">"Please "</string>
+    <string name="error_blank_username">enter your email address</string>
+    <string name="error_blank_password">enter a password</string>
+    <string name="error_mismatched_passwords">enter the same password twice</string>
+    <string name="error_join">", and "</string>
+    <string name="error_end">.</string>
+    <string name="progress_login">Logging you in&#8230;</string>
+    <string name="progress_signup">Signing you up&#8230;</string>
+
+</resources>
