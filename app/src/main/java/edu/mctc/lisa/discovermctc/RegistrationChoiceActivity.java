@@ -3,6 +3,7 @@ package edu.mctc.lisa.discovermctc;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -13,11 +14,14 @@ import android.widget.Button;
  */
 
 public class RegistrationChoiceActivity extends Activity {
+    private static final String TAG = "MCTC.regChoice";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_choice);
+
+        Log.d(TAG, "onCreate");
 
         // Log in button click handler
         Button loginButton = (Button) findViewById(R.id.login_button);
