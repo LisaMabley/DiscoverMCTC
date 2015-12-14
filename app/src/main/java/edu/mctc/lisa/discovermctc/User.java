@@ -1,7 +1,8 @@
 package edu.mctc.lisa.discovermctc;
 
+import android.util.Log;
+
 import com.parse.ParseClassName;
-import com.parse.ParseGeoPoint;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
@@ -13,31 +14,14 @@ import java.util.ArrayList;
 @ParseClassName("User")
 public class User extends ParseUser {
 
-    private ArrayList<Location> foundLocations = new ArrayList<>();
+    private ArrayList<Location> foundLocations;
+    private static final String TAG = "MCTC.user";
 
-    public String getText() {
-        return getString("text");
+    public User() {
+
+        super();
+        foundLocations = new ArrayList<>();
+        Log.d(TAG, "onCreate");
     }
-
-    public void setText(String value) {
-        put("text", value);
-    }
-
-    public ParseUser getUser() {
-        return getParseUser("user");
-    }
-
-    public void setUser(ParseUser value) {
-        put("user", value);
-    }
-
-    public ParseGeoPoint getLocation() {
-        return getParseGeoPoint("location");
-    }
-
-    public void setLocation(ParseGeoPoint value) {
-        put("location", value);
-    }
-
 
 }

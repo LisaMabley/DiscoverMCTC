@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -27,6 +28,8 @@ public class SignUpActivity extends Activity {
     private EditText usernameEditText;
     private EditText passwordEditText;
     private EditText passwordAgainEditText;
+
+    private static final String TAG = "MCTC.signup";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,7 @@ public class SignUpActivity extends Activity {
     }
 
     private void signup() {
+        Log.d(TAG, "signup button touched");
         String username = usernameEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
         String passwordAgain = passwordAgainEditText.getText().toString().trim();
@@ -97,11 +101,13 @@ public class SignUpActivity extends Activity {
 
         // Set up a progress dialog
         final ProgressDialog dialog = new ProgressDialog(SignUpActivity.this);
+        Log.d(TAG, "making progress dialog");
         dialog.setMessage(getString(R.string.progress_signup));
         dialog.show();
 
         // Set up a new Parse user
         User user = new User();
+        Log.d(TAG, "new user created: " + username);
         user.setUsername(username);
         user.setPassword(password);
 
