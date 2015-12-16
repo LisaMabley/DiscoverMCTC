@@ -28,9 +28,8 @@ public class DispatchActivity extends Activity {
         if (ParseUser.getCurrentUser() != null) {
             Log.d(TAG, ParseUser.getCurrentUser().toString());
 
-
             // Start an intent for the logged in activity
-//            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
 
         } else {
             // Start and intent for the logged out activity

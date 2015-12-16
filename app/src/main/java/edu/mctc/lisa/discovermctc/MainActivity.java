@@ -6,11 +6,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MCTC.main";
+    // TODO: add logout button to this activity
+    // TODO: add admin activity that allows admin to add/edit locations
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        uploadLocationObjects();
     }
 
     @Override
@@ -21,12 +25,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 //    private void uploadLocationObjects() {
+//        Log.d(TAG, "uploadLocationObjects");
 //
-//        String[] libraryDetails = {"Library", "Whitney Hall XXXX", "44.972375, -93.284757"};
-//        String[] computerLabDetails = {"Computer Lab", "T Building XXXX", "44.972949, -93.283128"};
-//        String[] healthClinicDetails = {"Student Health Clinic", "H Building XXXX", "44.972250, -93.282917"};
+//        String[] libraryDetails = {"Library", "Whitney Hall XXXX", "44.972375", "-93.284757"};
+//        String[] computerLabDetails = {"Computer Lab", "T Building XXXX", "44.972949", "-93.283128"};
+//        String[] healthClinicDetails = {"Student Health Clinic", "H Building XXXX", "44.972250", "-93.282917"};
 //
-//        ArrayList locations = new ArrayList();
+//        ArrayList<String[]> locations = new ArrayList<>();
 //        locations.add(libraryDetails);
 //        locations.add(computerLabDetails);
 //        locations.add(healthClinicDetails);
@@ -34,9 +39,16 @@ public class MainActivity extends AppCompatActivity {
 //        String detailText = "Disrupt viral hella meh, plaid cupidatat magna art party. Literally narwhal. Craft beer forage cornhole. Locavore ex vinyl tote bag chillwave swag occaecat. Sed banh mi foodie freegan ethical mixtape blog, umami nulla skateboard.";
 //
 //        for (int x = 0; x<locations.size(); x++) {
+//            String[] location = locations.get(x);
+//            double longitude = Double.parseDouble(location[2]);
+//            double latitude = Double.parseDouble(location[3]);
+//            ParseGeoPoint point = new ParseGeoPoint(longitude, latitude);
 //            Location newLocation = new Location();
-////            newLocation.
-//
+//            newLocation.put("LongLat", point);
+//            newLocation.put("Name", location[0]);
+//            newLocation.put("RoomNum", location[1]);
+//            newLocation.put("Text", detailText);
+//            newLocation.saveInBackground();
 //        }
 //    }
 

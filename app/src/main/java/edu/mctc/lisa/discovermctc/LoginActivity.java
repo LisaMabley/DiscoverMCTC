@@ -89,6 +89,7 @@ public class LoginActivity extends Activity {
         final ProgressDialog dialog = new ProgressDialog(LoginActivity.this);
         dialog.setMessage(getString(R.string.progress_login));
         dialog.show();
+
         // Call the Parse login method
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override

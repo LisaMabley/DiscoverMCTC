@@ -18,6 +18,7 @@ public class Application extends android.app.Application {
         Log.d(TAG, "onCreate");
         Parse.enableLocalDatastore(this);
         ParseObject.registerSubclass(User.class);
+        ParseObject.registerSubclass(Location.class);
         Parse.initialize(this);
     }
 }
