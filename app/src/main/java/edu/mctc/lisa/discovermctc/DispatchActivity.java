@@ -26,7 +26,6 @@ public class DispatchActivity extends Activity {
 
 //      Check if there is current user info
         if (ParseUser.getCurrentUser() != null) {
-            Log.d(TAG, ParseUser.getCurrentUser().toString());
 
             // Start an intent for the logged in activity
             startActivity(new Intent(this, MainActivity.class));

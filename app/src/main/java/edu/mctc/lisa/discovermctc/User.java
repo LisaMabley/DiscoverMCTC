@@ -1,7 +1,5 @@
 package edu.mctc.lisa.discovermctc;
 
-import android.util.Log;
-
 import com.parse.ParseClassName;
 import com.parse.ParseUser;
 
@@ -21,7 +19,5 @@ public class User extends ParseUser {
 
         super();
         foundLocations = new ArrayList<>();
-        Log.d(TAG, "onCreate");
     }
-
 }

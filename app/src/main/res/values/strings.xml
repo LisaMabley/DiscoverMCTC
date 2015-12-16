@@ -4,6 +4,7 @@
     <string name="campus_image_description">Image of MCTC campus showing outdoor plaza and nearby Helland Center.</string>
     <string name="signup">Sign Up</string>
     <string name="login">Log In</string>
+    <string name="logout">Log out and exit</string>
     <string name="welcome_text">Quinoa nihil midges hoodie, cold-pressed consectetur four look single-origin coffee labors et you probably haven\'t heard of them. Selvage dolor fashion letterpress kitsch official norm core retro.</string>
 
     <!-- Strings related to login -->

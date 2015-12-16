@@ -19,10 +19,16 @@
 
     <!--android:name="com.google.android.gms.maps.SupportMapFragment"-->
 
-    <ListView
-        android:id="@+id/posts_listview"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1" />
+    <!--<ListView-->
+        <!--android:id="@+id/posts_listview"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:layout_weight="1" />-->
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/logout"/>
 
 </LinearLayout>
