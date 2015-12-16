@@ -2,22 +2,44 @@ package edu.mctc.lisa.discovermctc;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.parse.ParseGeoPoint;
+
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
+
+    private static final LatLng MCTC = new LatLng(44.9728, -93.2837);
+    protected static GoogleMap mMap;
+    protected static List<Location> allLocations;
 
     private static final String TAG = "MCTC.main";
 
-    // TODO: add logout button to this activity for debugging
-    // TODO: add admin activity that allows admin to add/edit locations
+    // TODO: use different marker for locations user has found
+    // TODO: add admin activity that allows admin to add/edit locations and map focal point
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        allLocations = Location.getAllLocations();
+
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(MainActivity.this);
 
         Button logoutButton = (Button) findViewById(R.id.logout_button);
         logoutButton.setOnClickListener(new View.OnClickListener() {
@@ -28,9 +50,37 @@ public class MainActivity extends AppCompatActivity {
 
                 // Exit app
                 System.exit(1);
-
             }
         });
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        // Display map
+        mMap = googleMap;
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(MCTC, 17));
+
+        for (int x = 0; x < allLocations.size(); x ++) {
+            // Add map marker for each location
+            Location locationInstance = allLocations.get(x);
+
+            if (locationInstance.getLocation() != null) {
+                ParseGeoPoint parseCoordinates = locationInstance.getLocation();
+                Double longitude = parseCoordinates.getLongitude();
+                Double latitude = parseCoordinates.getLatitude();
+
+                // Convert Parse GeoPoint to Google Maps LatLng coordinates
+                LatLng coordinates = new LatLng(latitude, longitude);
+
+                // Add marker on map
+                MainActivity.mMap.addMarker(new MarkerOptions().position(coordinates).title(allLocations.get(x).getString("Name")));
+
+            } else {
+                // TODO: fix null pointer exception here!
+                // TODO: More useful error handling
+                Log.d(TAG, "parsegeopoint object is null");
+            }
+        }
     }
 
     @Override
