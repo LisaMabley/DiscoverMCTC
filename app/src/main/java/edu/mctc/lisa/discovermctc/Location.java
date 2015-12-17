@@ -37,6 +37,8 @@ public class Location extends ParseObject {
     }
 
     public ParseGeoPoint getLocation() {
-        return getParseGeoPoint("location");
+        // TODO: Rename parse column to something that makes more sense
+        // Esp since the data in the GeoPoint is Lat Long, not Long Lat
+        return getParseGeoPoint("LongLat");
     }
 }

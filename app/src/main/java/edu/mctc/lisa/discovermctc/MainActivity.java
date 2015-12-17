@@ -72,11 +72,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 // Convert Parse GeoPoint to Google Maps LatLng coordinates
                 LatLng coordinates = new LatLng(latitude, longitude);
 
+                // Create marker label
+                String markerLabel = locationInstance.getString("Name");
+                markerLabel = markerLabel.concat("\n" + locationInstance.getString("RoomNum"));
+
                 // Add marker on map
-                MainActivity.mMap.addMarker(new MarkerOptions().position(coordinates).title(allLocations.get(x).getString("Name")));
+                MainActivity.mMap.addMarker(new MarkerOptions().position(coordinates).title(markerLabel));
 
             } else {
-                // TODO: fix null pointer exception here!
                 // TODO: More useful error handling
                 Log.d(TAG, "parsegeopoint object is null");
             }
