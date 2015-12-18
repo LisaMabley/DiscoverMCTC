@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:text="@string/logout"
         android:layout_gravity="right|bottom"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="24dp"
         android:padding="12dp"/>
 
 </LinearLayout>

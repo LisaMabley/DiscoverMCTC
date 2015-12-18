@@ -2,7 +2,6 @@ package edu.mctc.lisa.discovermctc;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -63,26 +62,18 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         for (int x = 0; x < allLocations.size(); x ++) {
             // Add map marker for each location
             Location locationInstance = allLocations.get(x);
+            ParseGeoPoint parseCoordinates = locationInstance.getLocation();
+            Double longitude = parseCoordinates.getLongitude();
+            Double latitude = parseCoordinates.getLatitude();
 
-            if (locationInstance.getLocation() != null) {
-                ParseGeoPoint parseCoordinates = locationInstance.getLocation();
-                Double longitude = parseCoordinates.getLongitude();
-                Double latitude = parseCoordinates.getLatitude();
+            // Convert Parse GeoPoint to Google Maps LatLng coordinates
+            LatLng coordinates = new LatLng(latitude, longitude);
 
-                // Convert Parse GeoPoint to Google Maps LatLng coordinates
-                LatLng coordinates = new LatLng(latitude, longitude);
-
-                // Create marker label
-                String markerLabel = locationInstance.getString("Name");
-                markerLabel = markerLabel.concat("\n" + locationInstance.getString("RoomNum"));
-
-                // Add marker on map
-                MainActivity.mMap.addMarker(new MarkerOptions().position(coordinates).title(markerLabel));
-
-            } else {
-                // TODO: More useful error handling
-                Log.d(TAG, "parsegeopoint object is null");
-            }
+            // Add marker on map
+            MainActivity.mMap.addMarker(new MarkerOptions()
+                    .position(coordinates)
+                    .title(locationInstance.getString("Name"))
+                    .snippet(locationInstance.getString("RoomNum")));
         }
     }
 
